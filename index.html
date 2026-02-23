@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Coaching Digital Infrastructure Proposal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ===============================
+   GLOBAL + PRINT SAFE
+================================ */
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #0c0f17;
+  color: #f5f5f5;
+}
+
+@media print {
+  body {
+    background-color: #0c0f17 !important;
+  }
+}
+
+/* ===============================
+   A4 LAYOUT
+================================ */
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 25mm;
+  margin: auto;
+  page-break-after: always;
+}
+
+h1, h2, h3 {
+  color: #d4af37;
+  margin-top: 0;
+}
+
+.section-title {
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.bundle-card {
+  border: 1px solid #d4af37;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.bundle-card h3 {
+  margin-top: 0;
+}
+
+.feature-category {
+  margin-top: 40px;
+}
+
+.feature-item {
+  border-bottom: 1px solid #333;
+  padding: 10px 0;
+}
+
+.feature-item label {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.price {
+  float: right;
+  color: #d4af37;
+}
+
+.warning {
+  color: #ff6b6b;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.summary-box {
+  border: 2px solid #d4af37;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input[type="number"] {
+  padding: 5px;
+  margin: 5px;
+}
+
+.total-price {
+  font-size: 24px;
+  color: #d4af37;
+  font-weight: bold;
+}
+/* ===============================
+   FEATURE CATEGORY UI
+================================ */
+
+.category-block {
+  margin-bottom: 40px;
+  border: 1px solid #2a2f3a;
+  border-radius: 10px;
+  padding: 20px;
+  background: #111522;
+}
+
+.category-title {
+  font-size: 18px;
+  color: #d4af37;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d4af37;
+  padding-bottom: 8px;
+}
+
+.feature-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #222;
+}
+
+.feature-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feature-description {
+  display: none;
+  font-size: 13px;
+  margin-top: 8px;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+.feature-description p {
+  margin: 5px 0;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  color: #d4af37;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+/* ===============================
+   MOTIVATION PANEL STYLING
+================================ */
+
+/* ===============================
+   /* ===============================
+   CUTE PASTEL MOTIVATION PANEL
+================================ */
+
+.cute-quote-panel {
+  background: linear-gradient(
+    135deg,
+    #fff9fb,
+    #ffeef3,
+    #fff7d6,
+    #ffffff
+  );
+  border-radius: 25px;
+  padding: 60px 40px;
+  max-width: 900px;
+  margin: 80px auto;
+  box-shadow: 0 25px 80px rgba(255, 182, 193, 0.25);
+  text-align: center;
+}
+
+.cute-quote-content p {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #333;
+  min-height: 80px;
+}
+
+.cute-quote-controls {
+  margin-top: 30px;
+}
+
+.cute-quote-controls button {
+  background: linear-gradient(90deg,#89f7fe,#66a6ff);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 0 12px;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(102,166,255,0.4);
+  transition: transform 0.2s ease;
+}
+
+.cute-quote-controls button:hover {
+  transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===============================
+PAGE 1 – COVER
+================================ -->
+<div class="page">
+  <h1>Digital Infrastructure Proposal</h1>
+  <h2>For Coaching Institutes</h2>
+  <p>
+    A complete modular SaaS-based digital ecosystem engineered to transform admissions, automate operations, enhance academic excellence, and build institutional transparency.
+  </p>
+</div>
+<!-- ===============================
+PAGE – VISION & MOTIVATION PANEL
+================================ -->
+<div class="page">
+
+  <h2 class="section-title">Institutional Vision & Growth Mindset</h2>
+
+<div class="cute-quote-panel">
+
+  <div class="cute-quote-content">
+    <p id="mainQuote"></p>
+  </div>
+
+  <div class="cute-quote-controls">
+    <button onclick="prevQuote()">‹</button>
+    <button onclick="nextQuote()">›</button>
+  </div>
+
+</div>
+
+</div>
+
+<!-- ===============================
+PAGE 2 – BUNDLE OVERVIEW
+================================ -->
+<div class="page">
+  <h2 class="section-title">Recommended Strategic Bundles</h2>
+<div class="bundle-card">
+  <h3>Tier-2 Beginner Growth Bundle (₹1,50,000 – ₹2,00,000)</h3>
+  <p><strong>Designed For:</strong> Early-stage coaching institutes in Tier-2 cities focused on admissions and trust-building.</p>
+
+  <p><strong>Includes:</strong></p>
+  <ul>
+    <li>Responsive Website</li>
+    <li>Inquiry Form</li>
+    <li>WhatsApp Integration + Follow-Up Reminder</li>
+    <li>Local Result Spotlight Page</li>
+    <li>Demo Booking with Seat Counter</li>
+    <li>SEO Setup (Local SEO)</li>
+    <li>Attendance Tracking (Basic)</li>
+    <li>Parent Login (Basic)</li>
+    <li>Monthly Topper Poster Generator</li>
+    <li>Fee Reminder Automation</li>
+    <li>Digital Notice Board</li>
+  </ul>
+
+  <p><strong>Why Important:</strong> Builds credibility, increases demo conversion, and strengthens parent trust.</p>
+
+  <p><strong>Upgrade Path:</strong> Upgrade to Automation Management once student base crosses 200+.</p>
+</div>
+  <div class="bundle-card">
+    <h3>Starter Growth Bundle (₹80,000 – ₹1,20,000)</h3>
+    <p><strong>Includes:</strong> Website, Courses & Results Section, Inquiry Form, WhatsApp Integration, SEO Setup, SSL, Google Analytics.</p>
+    <p><strong>Why Important:</strong> Establishes professional online presence and admission capture system.</p>
+    <p><strong>Upgrade Path:</strong> Move to Admission Boost for conversion optimization.</p>
+  </div>
+
+  <div class="bundle-card">
+    <h3>Admission Boost Bundle (₹1,50,000 – ₹2,20,000)</h3>
+    <p><strong>Includes:</strong> Online Admission, Lead Dashboard, Scholarship Test, Funnel Setup.</p>
+    <p><strong>Why Important:</strong> Converts inquiries into structured enrollments.</p>
+    <p><strong>Upgrade Path:</strong> Add Automation Management for operational scaling.</p>
+  </div>
+
+  <div class="bundle-card">
+    <h3>Automation Management Bundle (₹2,50,000 – ₹3,50,000)</h3>
+    <p><strong>Includes:</strong> Attendance, Fee ERP, Installment Tracking, Payroll.</p>
+    <p><strong>Why Important:</strong> Eliminates manual administrative workload.</p>
+    <p><strong>Upgrade Path:</strong> Add Academic Excellence for student performance tracking.</p>
+  </div>
+
+  <div class="bundle-card">
+    <h3>Academic Excellence Bundle (₹3,50,000 – ₹4,50,000)</h3>
+    <p><strong>Includes:</strong> Study Material, Test Engine, Parent Login, Progress Tracking.</p>
+    <p><strong>Why Important:</strong> Academic transparency improves results and retention.</p>
+    <p><strong>Upgrade Path:</strong> Upgrade to Institutional Control.</p>
+  </div>
+
+  <div class="bundle-card">
+    <h3>Institutional Control Bundle (₹4,50,000 – ₹6,00,000)</h3>
+    <p><strong>Includes:</strong> Advanced Analytics, Role-Based Access, VPS Hardening.</p>
+    <p><strong>Why Important:</strong> Enterprise-grade security and performance insights.</p>
+  </div>
+
+  <div class="bundle-card">
+    <h3>Premium Digital Academy Bundle (₹6,00,000+)</h3>
+    <p><strong>Includes:</strong> Gamification, PWA App, Advanced Analytics Dashboard.</p>
+    <p><strong>Why Important:</strong> Competitive differentiation & high-end brand positioning.</p>
+  </div>
+</div>
+
+<!-- ===============================
+PAGE 3+ – FEATURE LIBRARY
+================================ -->
+<div class="page">
+  <h2 class="section-title">Complete Feature Library</h2>
+
+  <div id="features"></div>
+
+  <div id="warnings" class="warning"></div>
+</div>
+
+<!-- ===============================
+FINAL PAGE – TOTAL + EMI + SUGGESTION
+================================ -->
+<div class="page">
+  <h2 class="section-title">Investment Summary</h2>
+
+  <div class="summary-box">
+    <p>Total Investment:</p>
+    <div class="total-price" id="totalPrice">₹0</div>
+
+    <hr>
+
+    <h3>EMI Calculator</h3>
+    Down Payment:
+    <input type="number" id="downPayment" value="0">
+    Months:
+    <input type="number" id="months" value="12">
+    <p>Monthly EMI: <strong id="emiResult">₹0</strong></p>
+
+    <hr>
+
+    <h3>Recommended Bundle Based on Selection:</h3>
+    <p id="bundleSuggestion">Select features to see recommendation.</p>
+  </div>
+</div>
+<div class="page">
+  <h2 class="section-title">6-Month Digital Growth Roadmap (Tier-2 Strategy)</h2>
+
+  <h3>Month 1 – Foundation</h3>
+  <p>Launch website, inquiry form, WhatsApp integration, and publish results page.</p>
+
+  <h3>Month 2 – Admission Boost</h3>
+  <p>Launch demo booking + follow-up automation. Run scholarship test campaign.</p>
+
+  <h3>Month 3 – Parent Trust</h3>
+  <p>Enable attendance tracking and parent dashboard.</p>
+
+  <h3>Month 4 – Branding</h3>
+  <p>Start topper poster campaign & local social media growth.</p>
+
+  <h3>Month 5 – Financial Discipline</h3>
+  <p>Enable fee reminder automation & reporting.</p>
+
+  <h3>Month 6 – Scale Preparation</h3>
+  <p>Analyze admission funnel metrics and prepare ERP upgrade.</p>
+
+  <hr>
+  <p><strong>Outcome After 6 Months:</strong> Structured admissions, improved cash flow, trusted local brand positioning.</p>
+</div>
+<!-- ===============================
+SaaS RECURRING REVENUE PROJECTION
+================================ -->
+<div class="page">
+  <h2 class="section-title">SaaS Recurring Revenue Projection</h2>
+
+  <div class="summary-box">
+
+    <h3>Subscription Model Configuration</h3>
+
+    Monthly Subscription Fee (₹):
+    <input type="number" id="monthlyFee" value="5000">
+
+    Estimated Number of Students:
+    <input type="number" id="studentCount" value="200">
+
+    Average Monthly Fee Per Student (₹):
+    <input type="number" id="avgStudentFee" value="2500">
+
+    <hr>
+
+    <h3>Revenue Projections</h3>
+
+    <p>Monthly SaaS Revenue:
+      <strong id="monthlySaaSRevenue">₹0</strong>
+    </p>
+
+    <p>Annual SaaS Revenue:
+      <strong id="annualSaaSRevenue">₹0</strong>
+    </p>
+
+    <p>3-Year Recurring Revenue:
+      <strong id="threeYearRevenue">₹0</strong>
+    </p>
+
+    <hr>
+
+    <h3>Institution Revenue Estimation</h3>
+
+    <p>Coaching Monthly Revenue:
+      <strong id="coachingRevenue">₹0</strong>
+    </p>
+
+    <p>Estimated Digital ROI (Annual):
+      <strong id="digitalROI">₹0</strong>
+    </p>
+
+  </div>
+</div>
+<!-- ===============================
+INSTITUTIONAL ROI ESTIMATOR
+================================ -->
+<div class="page">
+  <h2 class="section-title">Institutional ROI Estimator</h2>
+
+  <div class="summary-box">
+
+    <h3>Digital Impact Assumptions</h3>
+
+    Current Monthly Admissions:
+    <input type="number" id="currentAdmissions" value="40">
+
+    Expected Admission Growth (%):
+    <input type="number" id="admissionGrowth" value="25">
+
+    Average Fee Per Student (₹):
+    <input type="number" id="roiStudentFee" value="30000">
+
+    Estimated Operational Savings Per Month (₹):
+    <input type="number" id="monthlySavings" value="20000">
+
+    <hr>
+
+    <h3>ROI Results</h3>
+
+    <p>Additional Annual Revenue:
+      <strong id="additionalRevenue">₹0</strong>
+    </p>
+
+    <p>Annual Operational Savings:
+      <strong id="annualSavings">₹0</strong>
+    </p>
+
+    <p>Total Annual Benefit:
+      <strong id="totalBenefit">₹0</strong>
+    </p>
+
+    <p>ROI Percentage:
+      <strong id="roiPercentage">0%</strong>
+    </p>
+
+    <p>Estimated Payback Period:
+      <strong id="paybackPeriod">0 Months</strong>
+    </p>
+
+  </div>
+</div>
+<script>
+  function toggleDescription(id) {
+  const element = document.getElementById("desc-" + id);
+  element.style.display =
+    element.style.display === "block" ? "none" : "block";
+}
+/* ===============================
+FEATURE DATA (ALL INCLUDED)
+================================ */
+
+const featuresData = [
+
+/* CORE */
+{ id:"website", name:"Responsive Website", price:40000 },
+{ id:"courses", name:"Courses & Results Section", price:20000 },
+{ id:"inquiry", name:"Inquiry Form", price:10000 },
+{ id:"whatsapp", name:"WhatsApp Integration", price:8000 },
+{ id:"seo", name:"SEO Setup", price:15000 },
+{ id:"resultsPage", name:"Results Showcase Page", price:15000 },
+{ id:"testimonial", name:"Testimonial Page", price:10000 },
+{ id:"countdown", name:"Exam Countdown Widget", price:5000 },
+{ id:"analytics", name:"Google Analytics Integration", price:8000 },
+{ id:"ssl", name:"SSL Setup", price:5000 },
+{ id:"vps", name:"VPS Hardening", price:20000 },
+{ id:"backup", name:"Backup System", price:15000 },
+{ id:"roleAccess", name:"Role-Based Access", price:20000 },
+
+/* ADMISSION */
+{ id:"onlineAdmission", name:"Online Admission Form", price:20000 },
+{ id:"leadDashboard", name:"Lead Management Dashboard", price:30000 },
+{ id:"demoBooking", name:"Demo Class Booking System", price:15000 },
+{ id:"scholarship", name:"Scholarship Test Portal", price:35000 },
+{ id:"whatsappAuto", name:"WhatsApp Automation", price:15000 },
+{ id:"funnel", name:"Marketing Funnel Setup", price:25000 },
+{ id:"leadScoring", name:"CRM Lead Scoring Engine", price:45000 },
+{ id:"metaPixel", name:"Meta Ads Pixel Integration", price:25000 },
+{ id:"referral", name:"Referral Reward System", price:35000 },
+
+/* STUDENT MGMT */
+{ id:"studentDB", name:"Student Database", price:30000 },
+{ id:"batch", name:"Batch Management", price:20000 },
+{ id:"attendance", name:"Attendance Tracking", price:25000 },
+{ id:"attendanceSMS", name:"Attendance Alert SMS", price:15000 },
+{ id:"fee", name:"Fee Tracking", price:25000 },
+{ id:"installment", name:"Installment Tracking", price:15000 },
+{ id:"feeERP", name:"Complete Fee ERP", price:50000 },
+{ id:"payroll", name:"Payroll System", price:30000 },
+{ id:"receipt", name:"Auto Receipt PDF", price:10000 },
+
+/* ACADEMIC */
+{ id:"study", name:"Study Material Upload", price:20000 },
+{ id:"mcq", name:"MCQ Test Engine", price:40000 },
+{ id:"advTest", name:"Advanced Test Engine", price:60000 },
+{ id:"adaptiveTest", name:"Adaptive Testing Engine", price:90000 },
+{ id:"weakTopicAI", name:"AI Weak Topic Identification", price:70000 },
+{ id:"rankSimulation", name:"National Rank Simulation Dashboard", price:55000 },
+{ id:"progress", name:"Progress Tracking Graph", price:20000 },
+{ id:"ranking", name:"Performance Ranking Dashboard", price:25000 },
+{ id:"parent", name:"Parent Login Panel", price:35000 },
+
+/* AI INTELLIGENCE */
+{ id:"aiPredictor", name:"AI Performance Predictor", price:100000 },
+{ id:"aiDoubt", name:"AI Doubt Resolution Assistant", price:60000 },
+{ id:"aiPlanner", name:"AI Study Planner Generator", price:40000 },
+
+/* INFRASTRUCTURE */
+{ id:"multiBranch", name:"Multi-Branch Management", price:80000 },
+{ id:"franchise", name:"Franchise Management Portal", price:120000 },
+{ id:"revenueAnalytics", name:"Revenue & Profit Analytics", price:50000 },
+{ id:"biometric", name:"Biometric Attendance Integration", price:65000 },
+{ id:"encryption", name:"Data Encryption Module", price:50000 },
+
+/* EXPERIENCE */
+{ id:"leaderboard", name:"Gamified Leaderboard", price:30000 },
+{ id:"pwa", name:"Android PWA App", price:60000 },
+{ id:"nativeApp", name:"Native Mobile App (Android + iOS)", price:180000 },
+{ id:"push", name:"Push Notification System", price:25000 },
+
+/* TIER-2 SPECIAL */
+{ id:"resultSpotlight", name:"Local Result Spotlight Page", price:15000 },
+{ id:"posterGenerator", name:"Monthly Topper Poster Generator", price:20000 },
+{ id:"feeReminder", name:"Installment Reminder Automation", price:15000 },
+{ id:"improvementTracker", name:"Guaranteed Improvement Tracker", price:18000 },
+/* ===============================
+NEW ADVANCED FEATURES ADDITION
+================================ */
+
+/* STUDENT PSYCHOLOGY & ENGAGEMENT */
+{ id:"motivationTracker", name:"Smart Motivation Tracker", price:35000 },
+{ id:"focusAnalytics", name:"Focus Analytics Dashboard", price:45000 },
+{ id:"badgeSystem", name:"Achievement Badge System", price:20000 },
+
+/* REVENUE & MONETIZATION */
+{ id:"dynamicFeeSystem", name:"Dynamic Fee Structuring System", price:40000 },
+{ id:"upsellEngine", name:"Upsell Recommendation Engine", price:55000 },
+{ id:"financialForecasting", name:"Financial Forecasting Dashboard", price:60000 },
+
+/* INSTITUTIONAL CREDIBILITY */
+{ id:"mediaMentions", name:"Media Mentions & Press Release Page", price:12000 },
+{ id:"successHeatmap", name:"Success Heatmap Visualization", price:30000 },
+
+/* STUDENT LIFECYCLE */
+{ id:"dropoutRisk", name:"Dropout Risk Alert System", price:65000 },
+{ id:"alumniTracking", name:"Alumni Success Tracking Engine", price:30000 },
+
+/* ADVANCED AUTOMATION */
+{ id:"communicationHub", name:"Multi-Channel Communication Hub", price:45000 },
+{ id:"calendarAutomation", name:"Academic Calendar Automation", price:20000 },
+
+/* SECURITY & CONTROL */
+{ id:"permissionMatrix", name:"Role-Level Permission Matrix", price:35000 },
+{ id:"auditLogSystem", name:"Audit Log System", price:40000 },
+
+/* COMPETITIVE DIFFERENTIATION */
+{ id:"mockInterviewAI", name:"AI Mock Interview Simulation", price:85000 },
+{ id:"smartClassroom", name:"Hybrid Smart Classroom Dashboard", price:95000 },
+
+/* LONG TERM EXPANSION */
+{ id:"franchiseRoyalty", name:"Franchise Royalty Management System", price:110000 },
+{ id:"nationalIntelligence", name:"Centralized National Data Intelligence Engine", price:150000 },
+
+/* BEGINNER LOW COST */
+{ id:"photoGallery", name:"Daily Classroom Photo Gallery", price:10000 },
+{ id:"whatsappBroadcast", name:"Auto WhatsApp Broadcast System", price:18000 },
+];
+
+/* ===============================
+RENDER FEATURES
+================================ */
+
+/* ===============================
+   FEATURE DATA WITH CATEGORIES
+================================ */
+
+const categories = [
+  {
+    title: "Core Website & Branding",
+    features: featuresData.filter(f =>
+      ["website","courses","inquiry","whatsapp","seo","resultsPage","testimonial","countdown","analytics","ssl","vps","backup","roleAccess"].includes(f.id)
+    )
+  },
+{
+  title: "Admission & Marketing",
+  features: featuresData.filter(f =>
+["onlineAdmission","leadDashboard","demoBooking","scholarship","whatsappAuto","funnel","leadScoring","metaPixel","referral",
+ "upsellEngine","whatsappBroadcast"]
+.includes(f.id)
+  )
+},
+  {
+    title: "Student Management",
+    features: featuresData.filter(f =>
+      ["studentDB","batch","attendance","attendanceSMS","fee","installment","feeERP","payroll","receipt",  "dynamicFeeSystem","financialForecasting"].includes(f.id)
+    )
+  },
+  {
+    title: "Academic Features",
+    features: featuresData.filter(f =>
+      ["study","mcq","advTest","adaptiveTest","weakTopicAI","rankSimulation","progress","ranking","parent"].includes(f.id)
+    )
+  },
+  {
+    title: "AI & Advanced Intelligence",
+    features: featuresData.filter(f =>
+      ["aiPredictor","aiDoubt","aiPlanner"].includes(f.id)
+    )
+  },
+  {
+    title: "Infrastructure & Enterprise Control",
+    features: featuresData.filter(f =>
+      ["multiBranch","franchise","revenueAnalytics","biometric","encryption"].includes(f.id)
+    )
+  },
+  {
+    title: "Experience & Premium",
+    features: featuresData.filter(f =>
+["leaderboard","pwa","nativeApp","push",
+ "motivationTracker","focusAnalytics","badgeSystem",
+ "mockInterviewAI","smartClassroom"].includes(f.id)
+    )
+  },
+
+{
+  title: "Institutional Credibility & Expansion",
+  features: featuresData.filter(f =>
+      ["mediaMentions","successHeatmap",
+       "dropoutRisk","alumniTracking",
+       "communicationHub","calendarAutomation",
+       "permissionMatrix","auditLogSystem",
+       "franchiseRoyalty","nationalIntelligence",
+       "photoGallery"]
+      .includes(f.id)
+  )
+}
+];
+
+/* ===============================
+   RENDER CATEGORIZED FEATURES
+================================ */
+
+const container = document.getElementById("features");
+
+categories.forEach(category => {
+
+  const categoryBlock = document.createElement("div");
+  categoryBlock.className = "category-block";
+
+  categoryBlock.innerHTML += `
+    <div class="category-title">${category.title}</div>
+  `;
+
+  category.features.forEach(f => {
+
+    categoryBlock.innerHTML += `
+      <div class="feature-item">
+        <div class="feature-header">
+          <label>
+            <input type="checkbox" value="${f.id}" data-price="${f.price}">
+            ${f.name}
+          </label>
+          <div>
+            <span class="price">₹${f.price.toLocaleString("en-IN")}</span>
+            <span class="toggle-btn" onclick="toggleDescription('${f.id}')">Details ▼</span>
+          </div>
+        </div>
+
+        <div class="feature-description" id="desc-${f.id}">
+          <p><strong>What:</strong> Advanced digital module for institutional efficiency.</p>
+          <p><strong>Why Important:</strong> Improves operational visibility and growth capability.</p>
+          <p><strong>Coaching Benefit:</strong> Structured automation and measurable control.</p>
+          <p><strong>Student/Parent Benefit:</strong> Better transparency and performance support.</p>
+        </div>
+      </div>
+    `;
+
+  });
+
+  container.appendChild(categoryBlock);
+});
+
+/* ===============================
+CALCULATIONS
+================================ */
+
+const checkboxes = document.querySelectorAll("input[type=checkbox]");
+const totalPriceEl = document.getElementById("totalPrice");
+const emiResult = document.getElementById("emiResult");
+const bundleSuggestion = document.getElementById("bundleSuggestion");
+const warningsEl = document.getElementById("warnings");
+
+function calculate() {
+  let total = 0;
+  let selected = [];
+
+  checkboxes.forEach(cb => {
+    if(cb.checked){
+      total += parseInt(cb.dataset.price);
+      selected.push(cb.value);
+    }
+  });
+
+  totalPriceEl.innerText = "₹" + total.toLocaleString("en-IN");
+
+  // EMI
+  let down = parseInt(document.getElementById("downPayment").value) || 0;
+  let months = parseInt(document.getElementById("months").value) || 1;
+  let emi = (total - down) / months;
+  emiResult.innerText = "₹" + Math.max(emi,0).toLocaleString("en-IN");
+
+  // Bundle Suggestion
+  if(selected.includes("website") && selected.includes("inquiry") && selected.includes("seo")){
+    bundleSuggestion.innerText = "Starter Growth Bundle Recommended.";
+  }
+  if(selected.includes("onlineAdmission") && selected.includes("leadDashboard") && selected.includes("scholarship")){
+    bundleSuggestion.innerText = "Admission Boost Bundle Recommended.";
+  }
+  if(selected.includes("attendance") && selected.includes("fee") && selected.includes("installment")){
+    bundleSuggestion.innerText = "Automation Management Bundle Recommended.";
+  }
+  if(selected.includes("study") && selected.includes("mcq") && selected.includes("parent")){
+    bundleSuggestion.innerText = "Academic Excellence Bundle Recommended.";
+  }
+  if(selected.includes("leaderboard") && selected.includes("advAnalytics") && selected.includes("pwa")){
+    bundleSuggestion.innerText = "Premium Digital Academy Bundle Recommended.";
+  }
+
+  // Dependency Warnings
+  let warnings = [];
+  if(selected.includes("fee") && !selected.includes("studentDB")){
+    warnings.push("Fee Tracking requires Student Database.");
+  }
+  if(selected.includes("attendance") && !selected.includes("batch")){
+    warnings.push("Attendance Tracking requires Batch Management.");
+  }
+  if(selected.includes("advTest") && !selected.includes("mcq")){
+    warnings.push("Advanced Test Engine requires MCQ Test Engine.");
+  }
+  if(selected.includes("parent") && !selected.includes("studentDB")){
+    warnings.push("Parent Login requires Student Database.");
+  }
+
+  warningsEl.innerHTML = warnings.join("<br>");
+}
+
+checkboxes.forEach(cb => cb.addEventListener("change", calculate));
+document.getElementById("downPayment").addEventListener("input", calculate);
+document.getElementById("months").addEventListener("input", calculate);
+/* ===============================
+   SAAS RECURRING MODEL CALCULATOR
+================================ */
+
+function calculateSaaSProjection() {
+
+  let monthlyFee = parseInt(document.getElementById("monthlyFee").value) || 0;
+  let studentCount = parseInt(document.getElementById("studentCount").value) || 0;
+  let avgStudentFee = parseInt(document.getElementById("avgStudentFee").value) || 0;
+
+  let monthlySaaS = monthlyFee;
+  let annualSaaS = monthlySaaS * 12;
+  let threeYear = annualSaaS * 3;
+
+  let coachingMonthlyRevenue = studentCount * avgStudentFee;
+  let annualCoachingRevenue = coachingMonthlyRevenue * 12;
+
+  let roi = annualCoachingRevenue - annualSaaS;
+
+  document.getElementById("monthlySaaSRevenue").innerText =
+    "₹" + monthlySaaS.toLocaleString("en-IN");
+
+  document.getElementById("annualSaaSRevenue").innerText =
+    "₹" + annualSaaS.toLocaleString("en-IN");
+
+  document.getElementById("threeYearRevenue").innerText =
+    "₹" + threeYear.toLocaleString("en-IN");
+
+  document.getElementById("coachingRevenue").innerText =
+    "₹" + coachingMonthlyRevenue.toLocaleString("en-IN");
+
+  document.getElementById("digitalROI").innerText =
+    "₹" + roi.toLocaleString("en-IN");
+}
+
+document.getElementById("monthlyFee").addEventListener("input", calculateSaaSProjection);
+document.getElementById("studentCount").addEventListener("input", calculateSaaSProjection);
+document.getElementById("avgStudentFee").addEventListener("input", calculateSaaSProjection);
+
+calculateSaaSProjection();
+/* ===============================
+   INSTITUTIONAL ROI ESTIMATOR
+================================ */
+
+function calculateROI() {
+
+  let totalInvestment = 0;
+
+  document.querySelectorAll("input[type=checkbox]").forEach(cb => {
+    if(cb.checked){
+      totalInvestment += parseInt(cb.dataset.price);
+    }
+  });
+
+  let currentAdmissions = parseInt(document.getElementById("currentAdmissions").value) || 0;
+  let growthPercent = parseInt(document.getElementById("admissionGrowth").value) || 0;
+  let avgFee = parseInt(document.getElementById("roiStudentFee").value) || 0;
+  let monthlySavings = parseInt(document.getElementById("monthlySavings").value) || 0;
+
+  let additionalAdmissions = currentAdmissions * (growthPercent / 100);
+  let additionalAnnualRevenue = additionalAdmissions * avgFee * 12;
+
+  let annualSavings = monthlySavings * 12;
+
+  let totalAnnualBenefit = additionalAnnualRevenue + annualSavings;
+
+  let roiPercent = totalInvestment > 0
+    ? ((totalAnnualBenefit - totalInvestment) / totalInvestment) * 100
+    : 0;
+
+  let paybackMonths = totalAnnualBenefit > 0
+    ? (totalInvestment / totalAnnualBenefit) * 12
+    : 0;
+
+  document.getElementById("additionalRevenue").innerText =
+    "₹" + additionalAnnualRevenue.toLocaleString("en-IN");
+
+  document.getElementById("annualSavings").innerText =
+    "₹" + annualSavings.toLocaleString("en-IN");
+
+  document.getElementById("totalBenefit").innerText =
+    "₹" + totalAnnualBenefit.toLocaleString("en-IN");
+
+  document.getElementById("roiPercentage").innerText =
+    roiPercent.toFixed(1) + "%";
+
+  document.getElementById("paybackPeriod").innerText =
+    paybackMonths.toFixed(1) + " Months";
+}
+
+document.getElementById("currentAdmissions").addEventListener("input", calculateROI);
+document.getElementById("admissionGrowth").addEventListener("input", calculateROI);
+document.getElementById("roiStudentFee").addEventListener("input", calculateROI);
+document.getElementById("monthlySavings").addEventListener("input", calculateROI);
+
+document.addEventListener("change", function(e){
+  if(e.target.type === "checkbox"){
+    calculateROI();
+  }
+});
+
+calculateROI();
+
+/* ===============================
+   MOTIVATION SLIDER LOGIC
+================================ */
+
+/* ===============================
+   MOTIVATION SLIDER LOGIC
+================================ */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+  const motivationQuotes = [
+    "Strong systems build strong institutions.",
+    "Transparency builds trust. Trust builds admissions.",
+    "Growth is engineered — not accidental.",
+    "Parents invest where they see clarity.",
+    "Consistency creates results.",
+    "Digital infrastructure builds confidence.",
+    "Professional systems create professional outcomes.",
+    "Modern institutes grow faster.",
+    "Structure increases credibility.",
+    "Success follows clarity."
+  ];
+
+  let currentQuoteIndex = 0;
+  const quoteElement = document.getElementById("mainQuote");
+
+  if(!quoteElement) return;
+
+  function showQuote(index){
+    quoteElement.innerText = motivationQuotes[index];
+  }
+
+  window.nextQuote = function(){
+    currentQuoteIndex = (currentQuoteIndex + 1) % motivationQuotes.length;
+    showQuote(currentQuoteIndex);
+  }
+
+  window.prevQuote = function(){
+    currentQuoteIndex =
+      (currentQuoteIndex - 1 + motivationQuotes.length) % motivationQuotes.length;
+    showQuote(currentQuoteIndex);
+  }
+
+  showQuote(currentQuoteIndex);
+
+});
+
+  
+</script>
+
+</body>
+</html>
